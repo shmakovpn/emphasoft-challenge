@@ -4,3 +4,5 @@ pylint
 ipython 
 sphinx
 sphinx-rtd-theme
+yapf
+mypy

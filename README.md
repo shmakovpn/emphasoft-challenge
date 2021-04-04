@@ -1,5 +1,9 @@
 # EmphaSoft challenge
 
+## Python version
+
+Python 3.8.5
+
 ## The story
 
 In US, taxes are often complex and require many different PDF forms and posted informational
@@ -14,16 +18,16 @@ For this challenge you must write two different utilities for searching IRS tax 
 return some informational results. Specifically, you must return the "Product Number", the
 "Title", and the maximum and minimum years the form is available for download. The
 results should be returned as json, in the format of the following example:
- ```json
- [
-   {
-     "form_number": "Form W-2",
-     "form_title": "Wage and Tax Statement (Info Copy Only)",
-     "min_year": 1954,
-     "max_year": 2021
-   }
-   ...
- ]
+    ```json
+    [
+      {
+        "form_number": "Form W-2",
+        "form_title": "Wage and Tax Statement (Info Copy Only)",
+        "min_year": 1954,
+        "max_year": 2021
+      }
+      ...
+    ]
  ```
 - Taking a tax form name (ex: "Form W-2") and a range of years (inclusive, 2018-2020 should
 fetch three years), download all PDFs available within that range. The downloaded PDFs
