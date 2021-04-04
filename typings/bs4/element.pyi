@@ -759,7 +759,10 @@ class Tag(PageElement):
         """
         ...
 
-    def get_text(self, separator=..., strip=..., types=...):
+    def get_text(self,
+                 separator: str = ...,
+                 strip: bool = ...,
+                 types: Any =...) -> str:
         """Get all child strings, concatenated using the given separator.
 
         :param separator: Strings will be concatenated using this separator.
@@ -821,7 +824,7 @@ class Tag(PageElement):
         """
         ...
 
-    def get(self, key: str, default: str=...) -> str:
+    def get(self, key: str, default: str = ...) -> str:
         """Returns the value of the 'key' attribute for the tag, or
         the value given for 'default' if it doesn't have that
         attribute."""
@@ -1213,4 +1216,5 @@ class ResultSet(list):
     def __getitem__(self, key: int) -> Tag:
         ...
 
-    def __iter__(self) -> Iterator[Tag]: ...
+    def __iter__(self) -> Iterator[Tag]:
+        ...
