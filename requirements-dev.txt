@@ -1,0 +1,6 @@
+pyflakes 
+pep8 
+pylint 
+ipython 
+sphinx
+sphinx-rtd-theme
