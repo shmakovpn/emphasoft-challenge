@@ -36,6 +36,9 @@ except ImportError:
 # task1 data
 from task1_data import task1_data
 
+if not os.path.isdir(CACHE_DIR):
+    os.mkdir(CACHE_DIR)
+
 
 class Page():
     url: str = ''
