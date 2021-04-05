@@ -2,7 +2,7 @@
 Data for task 1
 
 Author: shmakovpn <shmakovpn@yandex.ru>
-Date: 2021-04-5
+Date: 2021-04-05
 """
 from typing import List
 

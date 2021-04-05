@@ -19,7 +19,6 @@ from PyPDF2 import PdfFileReader
 from io import BytesIO
 import warnings
 
-
 FetchFuncStr = Coroutine[Any, Any, str]
 FetchFuncListStr = Coroutine[Any, Any, List[str]]
 FetchFuncListBytes = Coroutine[Any, Any, List[bytes]]
@@ -152,6 +151,7 @@ class PdfPage(Page):
         await self._save_to_cache(self._content)
         return self._content
 
+
 def url_filter(url: str) -> bool:
     if not url.endswith('.pdf'):
         return False
@@ -200,6 +200,12 @@ class Form:
         if self.max_year == current_year:
             return f'https://www.irs.gov/pub/irs-pdf/f{self.code}.pdf'
         return f'https://www.irs.gov/pub/irs-prior/f{self.code}--{self.max_year}.pdf'
+    
+    def url_year(self, year: int) -> str:
+        if year == current_year:
+            return f'https://www.irs.gov/pub/irs-pdf/f{self.code}.pdf'
+        else:
+            return f'https://www.irs.gov/pub/irs-prior/f{self.code}--{year}.pdf'
 
 
 class FormJson(Form):
@@ -283,11 +289,12 @@ async def main():
                 content: bytes = await pdf_page.content()
                 form_dict: Dict[str, Any] = forms[parsed_task_code].to_dict()
                 form_dict['form_title'] = ''
+                form_dict['form_number'] = task_code
                 if not content:
                     form_dict['error_message'] = 'could not fetch PDF content'
                     print(json.dumps(form_dict))
                 else:
-                    try: 
+                    try:
                         with warnings.catch_warnings():
                             warnings.simplefilter("ignore")
                             pdf = PdfFileReader(BytesIO(content))
@@ -296,7 +303,8 @@ async def main():
                                 subject: str = info['/Subject']
                                 form_dict['form_title'] = subject
                             except:
-                                form_dict['error_message'] = 'PDF error, /Subject does not exist'
+                                form_dict[
+                                    'error_message'] = 'PDF error, /Subject does not exist'
                     except:
                         form_dict['error_message'] = 'PDF reading error'
                 _ = form_dict.pop('code')

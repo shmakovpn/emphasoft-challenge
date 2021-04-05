@@ -39,6 +39,28 @@ python task1.py
 
 - Скрипт, способен находить даже форму, уже выведенные из эксплуатации.
 
+## Task 2 data
+
+Please look at the *task1_data.py*.
+
+## Task 2 execution
+
+```bash
+python task2.py
+```
+
+## Задача 2 комментарии
+
+- Подобно задаче 1, работает кэширование
+
+- Поддержка http proxy
+
+- Если искомая форма отсутствует будет выведено сообщение об ошибке
+
+- Будут выведена года для которых нет файлов
+
+- Я добавил поддиректорию task2/, в качестве корня для папок задания 2, чтобы не смешивать результат работы скрипта и файлы проекта (в т.ч. и для .gitignore). 
+
 ## The story
 
 In US, taxes are often complex and require many different PDF forms and posted informational
