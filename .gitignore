@@ -62,3 +62,5 @@ secret/
 
 # tmp files
 temp.html
+
+proxy.py
