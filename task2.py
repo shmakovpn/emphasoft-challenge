@@ -5,7 +5,7 @@ using sitemap.xml
 Author: shmakovpn
 Date: 2021-04-04
 """
-from typing import List, Set
+from typing import List, Set, Dict, Any
 import os
 import asyncio
 import aiofiles
@@ -13,12 +13,6 @@ from aiohttp.client import ClientSession
 # task2 data
 from task2_data import task2_data
 from task1 import parse_task_code, get_forms, Form, PdfPage
-
-# proxy configuration
-try:
-    from proxy import proxy_args
-except ImportError:
-    proxy_args: Dict[str, Any] = {}
 
 SITE_URL: str = 'https://www.irs.gov/'
 SCRIPT_DIR: str = os.path.dirname(os.path.abspath(__file__))
